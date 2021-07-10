@@ -13,6 +13,7 @@ const specialChars = special.map((x) => String.fromCharCode(x));
 specialChars.splice(1, 1);
 specialChars.splice(13,1);
 specialChars.splice(21,1);
+specialChars.splice(10,1);
 
 
 
@@ -83,8 +84,24 @@ function generatePassword() {
   // Check if password is empty
   password.allFalse();
 
-  return [password.lowerCase, password.upperCase, password.numbers, password.specials];
+  // Generate password, 16 cases
+  // First case : All true
+  if (password.lowerCase == true && password.numbers == true &&
+      password.specials == true && password.upperCase == true) {
+        var totalChars = specialChars.concat(numberChars, lowerAlphabet, upperAlphabet);
+        var passwordArray = [];
+        for (i=0; i < password.charLength; i++) {
+          passwordArray.push(totalChars[Math.floor(Math.random() * (totalChars.length - 1))]);
+        }
+      }
+
+  var passwordStr = passwordArray.toString();
+  var passwordStr1 = passwordStr.replace(/,/g, "");
+  return passwordStr1;
 }
+
+
+
 
 // Write password to the #password input
 function writePassword() {
