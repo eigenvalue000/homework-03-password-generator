@@ -85,7 +85,7 @@ function generatePassword() {
   password.allFalse();
 
   // Generate password, 16 cases
-  // First case : All true
+  // First case : All true 1111
   if (password.lowerCase == true && password.numbers == true &&
       password.specials == true && password.upperCase == true) {
         var totalChars = specialChars.concat(numberChars, lowerAlphabet, upperAlphabet);
@@ -94,6 +94,74 @@ function generatePassword() {
           passwordArray.push(totalChars[Math.floor(Math.random() * (totalChars.length - 1))]);
         }
       }
+  // Second case : 1110
+  else if (password.lowerCase == true && password.numbers == true &&
+    password.specials == true && password.upperCase == false) {
+      var totalChars = specialChars.concat(numberChars, lowerAlphabet);
+      var passwordArray = [];
+      for (i=0; i < password.charLength; i++) {
+        passwordArray.push(totalChars[Math.floor(Math.random() * (totalChars.length - 1))]);
+      }
+  }
+  // Third case : 1101
+  else if (password.lowerCase == true && password.numbers == true &&
+    password.specials == false && password.upperCase == true) {
+      var totalChars = upperAlphabet.concat(numberChars, lowerAlphabet);
+      var passwordArray = [];
+      for (i=0; i < password.charLength; i++) {
+        passwordArray.push(totalChars[Math.floor(Math.random() * (totalChars.length - 1))]);
+      }
+  }
+  // Fourth case : 1011
+  else if (password.lowerCase == true && password.numbers == false &&
+           password.specials == true && password.upperCase == true) {
+            var totalChars = upperAlphabet.concat(specialChars, lowerAlphabet);
+            var passwordArray = [];
+            for (i=0; i < password.charLength; i++) {
+              passwordArray.push(totalChars[Math.floor(Math.random() * (totalChars.length - 1))]);
+            }
+  }
+  // Fifth case : 0111
+  else if (password.lowerCase == false && password.numbers == true &&
+    password.specials == true && password.upperCase == true) {
+      var totalChars = upperAlphabet.concat(specialChars, numberChars);
+      var passwordArray = [];
+      for (i=0; i < password.charLength; i++) {
+        passwordArray.push(totalChars[Math.floor(Math.random() * (totalChars.length - 1))]);
+      }
+  }
+  // Sixth case : 1100
+  // else if () {
+
+  // }
+  // Seventh case : 1010
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
+  // else if () {
+
+  // }
 
   var passwordStr = passwordArray.toString();
   var passwordStr1 = passwordStr.replace(/,/g, "");
